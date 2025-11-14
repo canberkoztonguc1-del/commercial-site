@@ -38,13 +38,13 @@ npm start
 ## Screenshots
 
 ### Home Page
-![Home page](public/screenshots/Screenshot%202025-11-14%20055717.png)
+![Home page](public/screenshots/Screenshot 2025-11-14 055717.png)
 
 ### Product List
-![Products](public/screenshots/Screenshot%202025-11-14%20055735.png)
+![Products](public/screenshots/Screenshot 2025-11-14 055735.png)
 
 ### Product Detail
-![Product detail](public/screenshots/Screenshot%202025-11-14%20055748.png)
+![Product detail](public/screenshots/Screenshot 2025-11-14 055748.png)
 
 ### Admin Dashboard
-![Admin dashboard](public/screenshots/Screenshot%202025-11-14%20055816.png)
+![Admin dashboard](public/screenshots/Screenshot 2025-11-14 055816.png)
