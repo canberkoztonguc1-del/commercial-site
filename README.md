@@ -35,3 +35,16 @@ npm run db:init
 
 # start the server
 npm start
+## Screenshots
+
+### Home Page
+![Home page](public/screenshots/Screenshot%202025-11-14%20055717.png)
+
+### Product List
+![Products](public/screenshots/Screenshot%202025-11-14%20055735.png)
+
+### Product Detail
+![Product detail](public/screenshots/Screenshot%202025-11-14%20055748.png)
+
+### Admin Dashboard
+![Admin dashboard](public/screenshots/Screenshot%202025-11-14%20055816.png)
