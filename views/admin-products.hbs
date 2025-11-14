@@ -1,0 +1,50 @@
+<h1 class="page-title">Admin - Products</h1>
+
+<div class="toolbar" style="margin:12px 0;">
+  <a class="pill" href="/admin/products/new">+ New product</a>
+  <a class="pill" href="/admin/users">Users</a>
+</div>
+
+{{#if products.length}}
+  <div class="card" style="overflow-x:auto;">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Brand</th>
+          <th>Price (SEK)</th>
+          <th>Image</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each products}}
+          <tr>
+            <td>{{id}}</td>
+            <td>{{title}}</td>
+            <td>{{category_name}}</td>
+            <td>{{brand_name}}</td>
+            <td>{{price}}</td>
+            <td>
+              {{#if image}}
+                <img src="/images/{{image}}" alt="{{title}}" style="height:40px;width:auto;">
+              {{else}}
+                <span class="muted">—</span>
+              {{/if}}
+            </td>
+            <td>
+              <a class="pill" href="/admin/products/{{id}}/edit">Edit</a>
+              <form action="/admin/products/{{id}}/delete" method="post" style="display:inline;" onsubmit="return confirm('delete this product?');">
+                <button type="submit" class="pill">Delete</button>
+              </form>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+{{else}}
+  <p>No products yet.</p>
+{{/if}}

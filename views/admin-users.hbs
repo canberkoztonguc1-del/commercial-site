@@ -1,0 +1,38 @@
+<h1 class="page-title">Admin - Users</h1>
+
+<div class="toolbar" style="margin:12px 0;">
+  <a class="pill" href="/admin/users/new">+ New user</a>
+  <a class="pill" href="/admin/products">Products</a>
+</div>
+
+{{#if users.length}}
+  <div class="card" style="overflow-x:auto;">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each users}}
+          <tr>
+            <td>{{id}}</td>
+            <td>{{username}}</td>
+            <td>{{role}}</td>
+            <td>
+              <a class="pill" href="/admin/users/{{id}}/edit">Edit</a>
+              <form action="/admin/users/{{id}}/delete" method="post" style="display:inline;" onsubmit="return confirm('delete this user?');">
+                <button type="submit" class="pill">Delete</button>
+              </form>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+{{else}}
+  <p>No users yet.</p>
+{{/if}}

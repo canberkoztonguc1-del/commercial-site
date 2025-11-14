@@ -1,0 +1,47 @@
+<h1 class="page-title">Admin - New Product</h1>
+
+
+<form action="/admin/products/{{product.id}}/edit" method="post" class="card" style="max-width:640px;">
+  <div class="form-row">
+    <label for="title">Title</label>
+    <input id="title" name="title" type="text" required value="{{product.title}}" />
+  </div>
+
+  <div class="form-row">
+    <label for="price">Price (SEK)</label>
+    <input id="price" name="price" type="number" step="0.01" min="0" required value="{{product.price}}" />
+  </div>
+
+  <div class="form-row">
+    <label for="category_id">Category</label>
+    <select id="category_id" name="category_id" required>
+      {{#each categories}}
+        <option value="{{id}}" {{#if (eq id ../product.category_id)}}selected{{/if}}>{{name}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="brand_id">Brand</label>
+    <select id="brand_id" name="brand_id" required>
+      {{#each brands}}
+        <option value="{{id}}" {{#if (eq id ../product.brand_id)}}selected{{/if}}>{{name}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="image">Image filename (optional)</label>
+    <input id="image" name="image" type="text" value="{{product.image}}" placeholder="e.g. speaker.jpg" />
+  </div>
+
+  <div class="form-row">
+    <label for="description">Description</label>
+    <textarea id="description" name="description" rows="4">{{product.description}}</textarea>
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" class="pill">Save changes</button>
+    <a href="/admin/products" class="pill">Cancel</a>
+  </div>
+</form>

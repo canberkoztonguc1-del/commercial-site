@@ -1,0 +1,36 @@
+<h1 class="page-title">Products</h1>
+
+{{#if products.length}}
+  <div class="grid products-grid">
+    {{#each products}}
+      <a class="card product-card" href="/products/{{id}}">
+        <div class="card-body">
+          <div class="thumb">
+            {{#if image}}
+              <img src="/images/{{image}}" alt="{{title}}">
+            {{else}}
+              <div class="ph">No image</div>
+            {{/if}}
+          </div>
+          <h2 class="product-title">{{title}}</h2>
+          <p class="meta">
+            <span>{{category_name}}</span> • <span>{{brand_name}}</span>
+          </p>
+          <p class="price">{{price}} SEK</p>
+        </div>
+      </a>
+    {{/each}}
+  </div>
+
+  <nav class="pager" aria-label="pagination" style="margin:16px 0; display:flex; gap:8px; align-items:center;">
+    {{#if hasPrev}}
+      <a class="pill" href="/products?page={{prevPage}}{{#if q}}&q={{q}}{{/if}}">Previous</a>
+    {{/if}}
+    <span class="muted">Page {{page}} of {{totalPages}}</span>
+    {{#if hasNext}}
+      <a class="pill" href="/products?page={{nextPage}}{{#if q}}&q={{q}}{{/if}}">Next</a>
+    {{/if}}
+  </nav>
+{{else}}
+  <p>No products yet.</p>
+{{/if}}

@@ -1,0 +1,35 @@
+<h1 class="page-title">Login</h1>
+
+{{#if error}}
+  <div class="alert error" role="alert">{{error}}</div>
+{{/if}}
+
+<form action="/login" method="post" class="form card" style="max-width: 420px;">
+  <div class="form-row">
+    <label for="username">Username</label>
+    <input
+      id="username"
+      name="username"
+      type="text"
+      required
+      value="{{#if values}}{{values.username}}{{/if}}"
+      autocomplete="username"
+    />
+  </div>
+
+  <div class="form-row">
+    <label for="password">Password</label>
+    <input
+      id="password"
+      name="password"
+      type="password"
+      required
+      autocomplete="current-password"
+    />
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" class="pill">Sign in</button>
+    <a class="muted" href="/">Cancel</a>
+  </div>
+</form>

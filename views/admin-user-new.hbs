@@ -1,0 +1,31 @@
+<h1 class="page-title">Admin - New User</h1>
+
+<form action="/admin/users" method="post" class="card" style="max-width:480px;">
+  {{#if error}}
+    <div class="alert" style="margin-bottom:12px;">{{error}}</div>
+  {{/if}}
+
+  <div class="form-row">
+    <label for="username">Username</label>
+    <input id="username" name="username" type="text" required value="{{values.username}}">
+  </div>
+
+  <div class="form-row">
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" required minlength="6" placeholder="at least 6 chars">
+  </div>
+
+  <div class="form-row">
+    <label for="role">Role</label>
+    <select id="role" name="role" required>
+      {{#each roles}}
+        <option value="{{this}}" {{#if (eq ../values.role this)}}selected{{/if}}>{{this}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" class="pill">Save</button>
+    <a href="/admin/users" class="pill">Cancel</a>
+  </div>
+</form>

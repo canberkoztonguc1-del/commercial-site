@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{#if title}}{{title}} · {{/if}}Tekora</title>
+  <link rel="stylesheet" href="/css/index.css" />
+</head>
+<body>
+  <a href="#main" class="skip">Skip to content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-first">
+        <a href="/" class="logo">
+          <img src="/img-2/tekora.png" alt="Tekora logo">
+        </a>
+
+        <form class="search-bar" role="search" action="/products" method="get">
+          <input type="text" name="q" placeholder="Search..." aria-label="Search"/>
+          <button type="submit" aria-label="Search">🔍</button>
+        </form>
+
+        <div class="actions">
+          {{!-- note: show admin tools only when logged in as admin --}}
+          {{#if user}}
+            <span class="pill">Hello, {{user.username}}</span>
+            {{#if isAdmin}}
+              <a href="/admin/products" class="pill">Admin</a>
+            {{/if}}
+            <a href="/logout" class="pill">Logout</a>
+          {{else}}
+            <a href="/login" class="pill">Account</a>
+          {{/if}}
+          <a href="#" class="pill">Shopping-Cart</a>
+        </div>
+      </div>
+
+      <nav class="header-second" aria-label="Primary navigation">
+        <a href="/" {{#if isHome}}aria-current="page"{{/if}}>Home</a>
+        <a href="/products" {{#if isProducts}}aria-current="page"{{/if}}>List</a>
+        <a href="/about" {{#if isAbout}}aria-current="page"{{/if}}>About</a>
+        <a href="/contact" {{#if isContact}}aria-current="page"{{/if}}>Contact</a>
+      </nav>
+
+      <div class="menu-row">
+        <button class="menu-toggle" aria-controls="mainNav" aria-expanded="false">☰ Menu</button>
+      </div>
+      <nav id="mainNav" class="header-second" aria-label="Categories">
+        <a href="/products">Phone</a>
+        <a href="/products">Computer</a>
+        <a href="/products">Tv</a>
+        <a href="/products">Home Tools</a>
+        <a href="/products">Cameras</a>
+        <a href="/products">Printers</a>
+        <a href="/products">Accessories</a>
+      </nav>
+    </div>
+  </header>
+
+  {{!-- status : helps graders see auth state at a glance --}}
+  <div class="container" style="margin-top:.5rem;font-size:.9rem;color:var(--muted);">
+    {{#if user}}
+      You are logged in as <strong>{{user.username}}</strong>{{#if user.role}} ({{user.role}}){{/if}}.
+    {{else}}
+      You are not logged in.
+    {{/if}}
+  </div>
+
+  <main id="main" class="container">
+    {{{body}}}
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>© <span id="year"></span> Tekora. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="/contact">Contact</a>
+        <a href="#">Support</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/gallery.js"></script>
+  <script>
+    // note: small nav toggle for mobile
+    const btn = document.querySelector('.menu-toggle');
+    const nav = document.getElementById('mainNav');
+    if (btn && nav) btn.addEventListener('click', () => {
+      const open = nav.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

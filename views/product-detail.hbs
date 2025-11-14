@@ -1,0 +1,25 @@
+<a href="/products" class="back">← Back to products</a>
+
+<article class="product-detail">
+  <header>
+    <h1>{{product.title}}</h1>
+    <p class="meta">
+      <strong>Category:</strong> {{product.category_name}} •
+      <strong>Brand:</strong> {{product.brand_name}}
+    </p>
+  </header>
+
+  <section class="product-body">
+    <div class="media">
+      {{#if product.image}}
+        <img src="/images/{{product.image}}" alt="{{product.title}}">
+      {{else}}
+        <div class="ph-lg">No image</div>
+      {{/if}}
+    </div>
+    <div class="info">
+      <p class="price"><strong>Price:</strong> {{product.price}} SEK</p>
+      {{#if product.description}}<p>{{product.description}}</p>{{/if}}
+    </div>
+  </section>
+</article>
