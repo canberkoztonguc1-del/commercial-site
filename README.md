@@ -38,7 +38,7 @@ npm start
 ## Screenshots
 
 ### Home Page
-![Home page](public/screenshots/Screenshot2025-11-14055717.png)
+![Home page](public/screenshots/home)
 
 ### Product List
 ![Products](public/screenshots/Screenshot2025-11-14055735.png)
