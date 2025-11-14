@@ -24,19 +24,6 @@ It showcases a simple product catalogue with detail pages and an admin panel pro
 - Template engine (server-side rendered views)
 - HTML, CSS, basic JavaScript
 
-## Getting Started
-
-```bash
-# install dependencies
-npm install
-
-# initialize the database (tables + seed data)
-npm run db:init
-
-# start the server
-npm start
-
-
 ## Screenshots
 
 ### Home Page
@@ -50,3 +37,21 @@ npm start
 
 ### Admin Dashboard
 ![Admin dashboard](public/screenshots/admin.png)
+
+
+
+## Getting Started
+
+
+
+```bash
+# install dependencies
+npm install
+
+# initialize the database (tables + seed data)
+npm run db:init
+
+# start the server
+npm start
+
+
