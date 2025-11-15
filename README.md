@@ -54,4 +54,6 @@ npm run db:init
 # start the server
 npm start
 
+login:admin
+password:wdf#2025
 
