@@ -1,6 +1,6 @@
-# VATAN – Full-Stack Commercial Website
+# Tekora – Full-Stack Commercial Website
 
-VATAN is a full-stack commercial web application built as a course project.  
+Tekora is a full-stack commercial web application built as a course project.  
 It showcases a simple product catalogue with detail pages and an admin panel protected by login.
 
 ## Features
